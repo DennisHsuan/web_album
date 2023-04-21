@@ -1,0 +1,21 @@
+{% load extras %} 
+ <!--讀取 自訂標籤過濾器  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路相簿</title>
+</head>
+<body>
+    subjects = {{subjects}} <br />
+    scores = {{scores}}
+    <h2>成績單</h2>
+    {% for subject in subjects %} 
+        {{subject}}: 
+        {{scores|extras:forloop.counter0}} <br /><!--forloop counter0 迴圈計數器 (櫃台)0代表重[0]開始，之後每次+1-->
+        <!--{原有資料}|過濾器名稱[參數1，參數2....]，此題是用forloop迴圈去取得每一個 -->
+    {% endfor %}
+</body>
+</html>
